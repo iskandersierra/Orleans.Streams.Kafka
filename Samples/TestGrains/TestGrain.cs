@@ -30,8 +30,10 @@ namespace TestGrains
 					await subscriptionHandle.ResumeAsync(OnNextTestMessage);
 				}
 			}
-
-			await testStream.SubscribeAsync(OnNextTestMessage);
+			else
+			{
+				await testStream.SubscribeAsync(OnNextTestMessage);
+			}
 		}
 
 		private Task OnNextTestMessage(TestModel message, StreamSequenceToken sequenceToken)
